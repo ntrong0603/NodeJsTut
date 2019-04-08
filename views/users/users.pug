@@ -1,0 +1,35 @@
+extends ../layout/common.pug
+
+block content
+	h1 User List
+	a(href="/users/create") New user
+	form(action = "/users/search", method = "GET")
+		div.form-group
+			lable(for = "q", )
+			input(type = "text", name = "q", placeholder = "Search", list = "test_datalist", value = rs).form-control#q
+			datalist#test_datalist
+				each val, index in users
+					option(data_id = val.id)= val.name
+			input(type = "submit", value = "Search").btn.btn-primary
+	table.table
+		tr
+			th Avata
+			th name
+			th action
+
+		each val in users
+			tr
+				td
+					img(width = "100", height = " 100", src = val.file ? "../"+val.file : "../uploads/0d9f11b3ec99560d2320a409e4ce4736")
+				td= val.name
+				td
+					a(href="/users/"+val.id) Chi tiet
+	nav(aria-label="Page navigation example")
+		ul.pagination
+			li(class="page-item")
+				a(class="page-link" href = (reqUrl ? "/users/"+reqUrl : "/users?")+"page=" + (page > 1 ? (page - 1) : 1)) Prev
+			- for (var x = 1; x <= numPage; x++)
+				li.page-item
+					a(class="page-link", href = (reqUrl ? "/users/"+reqUrl : "/users?")+"page=" + x)= x
+			li(class="page-item")
+				a(class="page-link" href = (reqUrl ? "/users/"+reqUrl : "/users?")+"page=" + (page+1 > numPage ? numPage : (page + 1))) Next

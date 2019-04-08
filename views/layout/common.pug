@@ -1,0 +1,32 @@
+html
+	head
+		link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", crossorigin="anonymous")
+		link(rel = "stylesheet", href = "/style/style.css")
+
+		script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+		script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+	body
+		.container
+			.row
+				.col-12
+					block header
+						nav(class="navbar navbar-expand-lg navbar-light bg-light")
+							a(class="navbar-brand", href="/")
+								img(src="/images/img.JPG", width="30", height="30", class="d-inline-block align-top", alt="") 
+								span Hello work
+							button(class="navbar-toggler", type="button", data-toggle="collapse", data-target="#navbarNavAltMarkup", aria-controls="navbarNavAltMarkup", aria-expanded="false", aria-label="Toggle navigation")
+								span.navbar-toggler-icon
+							div(class="collapse navbar-collapse", id="navbarNavAltMarkup")
+								div(class="navbar-nav")
+									a(class="nav-item nav-link active", href="#") Home
+										span(class="sr-only") (current)
+									a(class="nav-item nav-link", href="#") Features
+									a(class="nav-item nav-link", href="#") Pricing
+									a(class="nav-item nav-link disabled", href="#", tabindex="-1", aria-disabled="true") Pricing
+		.container
+			block content
+		.container
+			.row
+				.col-12
+					block footer
