@@ -23,11 +23,12 @@ const port = 3000;
 app.set('view engine', 'pug');
 app.set('views', './views');
 
-app.use(cookieParser(process.env.SESSION_SECRET));// cookieParser("sdsafsaffasfwe") them vao sau doan luu 1 doan ma de chong nguoi dug co tinh thay doi cookie
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static('public'));//luu tru cac file public trong forder public
-
+app.use(cookieParser(process.env.SESSION_SECRET));// cookieParser("sdsafsaffasfwe") them vao sau doan luu 1 doan ma de chong nguoi dug co tinh thay doi cookie
+//app.user(csurf({cookie: true}));
 
 app.use("/api/users", apiUserRoute);
 
