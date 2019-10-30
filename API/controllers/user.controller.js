@@ -1,8 +1,16 @@
+
 var User = require('../../models/users.model');
 
 module.exports.index = async function(request, response) {	
-    var users = await User.find();
-    return response.json(users);
+	try{
+		console.log('dsadfsdfsdfsd',request.query);
+		var users = await User.find();
+    	return response.json(users);
+	} catch(err){
+		console.error(err)
+		return response.json({err :err});
+	}
+    
 }
 
 module.exports.create = async function(req, res){
